@@ -33,6 +33,9 @@ smallfire.auth.signIn('john@example.com', 'johnspassword', '<project-api-key>')
 		}
 	})
 ```
+``` javascript
+let user = await smallfire.auth.signIn('john@example.com', 'johnspassword', '<project-api-key>')
+```
 
 ### **signOut()**
 Remove user data from localStorage so the user is no longer automatically signed in.

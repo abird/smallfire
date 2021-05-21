@@ -78,7 +78,11 @@ orderBy	| Sort results by a single field name or an array of names
 mask (or select) | 	Restrict which fields are returned using a single field name or an array of names
 showMissing	| If the list should show missing documents. A missing document is a document that does not exist but has sub-documents.
 
+<br/>
+
 ``` javascript
+const {documents} = await db.list('cities')
+
 const {documents, nextPageToken} = await db.list('cities', {orderBy: 'name'})
 
 const {documents, nextPageToken} = await db.list('cities', {orderBy: ['state', 'name'], mask:['name', 'state']})
@@ -90,7 +94,7 @@ const {documents, nextPageToken} = await db.list('cities', {pageSize: 5, pageTok
 <br/>
 
 ### **set(documentPath, value)**
-Add or replace a document. This will completely replace an existing document. To change only some values, use `update`.
+Add a new document or complately replace an existing document. (To change only some values, use `update`.)
 
 Returns a promise for the added or updated document.  
 
@@ -127,8 +131,8 @@ These are the query for searching:
 Option | Description
 ------------ | -------------
 select | Restrict which fields are returned using a single field name or an array of names	
-from | Name of the collection to query
-where | Filter which documents to return. See the filter information below.	
+from | Name of the collection to query (required)
+where | Filter which documents to return. (See the filter information below.)
 orderBy	| Sort results by a single field name or an array of names. To sort a field in reverse order, prefix the field name with '-' (for example: '-age').
 startAt, startAfter, endAt, endBefore | Start or end before or after this value from the field specified by `orderBy`. For example, if `orderBy` is 'name' and `startAt` is 'Los Angeles', the results will includes all cities including and after Los Angeles.
 offset | The number of results to skip.

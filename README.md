@@ -13,10 +13,19 @@ Full Library | 204 KB | 3.9 KB
 <br/>
 If you are developing a light-weight web app that uses Firestore and or Firebase realtime database, this can greatly reduce the size of your downloads resulting in faster app startup.
 
-There are three library modules that can be loaded separately: `auth`, `firestore`, `firebase`, or loaded in a combined bundle: `smallfire`. The `auth` module supports only email/password authentcation and is only necessary when dealing with non-public data.
+There are three library modules that can be loaded separately: `auth`, `firestore`, and `firebase`. Or, you can load the combined bundle: `smallfire`. 
 
+The `auth` module supports only email/password authentication and is only necessary when dealing with non-public data.
+
+<br/>
+
+#### **Firebase SDK 9 Beta Note**
+```
+Google has recently released Firebase SDK 9 Beta, which uses a modular approach that has the potential to reduce the size of the SDK. It's difficult to measure the size of the SDK with this version, but our initial testing indicates that when loading the three modules `auth`, `firestore`, and `firebase`, the overal SDK is still above 100 KB.
+```
+
+## **Firestore Features**
 These features are supported with the `firestore` module for the Firestore database:
-
 Feature | Description
 ------------ | -------------
 `get` | get a single document
@@ -28,6 +37,8 @@ Feature | Description
 `listen` | get a document and listen for realtime updates
 
 <br/>
+
+## **Firebase Realtime Database Features**
 These features are supported with the `firebase` module for the Firebase realtime database:
 
 Feature | Description
@@ -39,11 +50,12 @@ Feature | Description
 `delete` | delete data
 `listen` | read data and get realtime updates
 
-<br/><br/>
+<br/>
+
 ## Installation
 <br/>
 
-### Script Tag
+### **Script Tag**
 The simplest way to add SmallFire to your web app is to add the following script tag to your `<head>` or `<body>` section:
 
 ```
@@ -72,7 +84,7 @@ const { auth, getFirestoreDB, getFirebaseDB } = window
 ```
 <br/>
 
-### Node
+### **Node**
 If you are using a Node build environment such as with Javascript libraries React or Vue, install SmallFire from NPM:
 
 ```
@@ -93,11 +105,11 @@ import { getFirestoreDB } from smallfire/firestore
 <br/>
 
 ## Documentation
-Please see individual module documentation here:
+Please see individual module documentation:
 
-[Authentication](./docs/auth.md)
+* [Authentication](./docs/auth.md)
 
-[Firebase realtime database](./docs/firebase.md)
+* [Firebase realtime database](./docs/firebase.md)
 
-[Firestore database](./docs/firestore.md)
+* [Firestore database](./docs/firestore.md)
 
