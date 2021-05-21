@@ -18,7 +18,6 @@ const db = smallfile.getFirebaseDB('my-project-id', user, 'europe-west1')
 
 const db = smallfile.getFirebaseDB('my-project-id', user, 'asia-southeast1.firebasedatabase.app')
 ```
-<br/>
 
 ## Database Functions
 
@@ -28,7 +27,6 @@ Several functions are available for accessing the database using the database re
 
 Most functions support an optional `options` object with additional parameters.
 
-<br/>
 
 ### **get(dataPath [, options])**
 Read data. Returns a promise for the data at the indicated path.
@@ -44,7 +42,6 @@ startAt | Value to start at
 endAt | Value to end at
 equalTo | Equal to value
 
-<br/>
 
 ``` javascript
 const city = await db.get('cities/sd')
@@ -55,7 +52,6 @@ const dinosaurs = await db.get('dinosaurs', {orderBy:'weight', limitToLast:2})
 
 const scores = await db.get('scores', {orderBy:'$value', startAt:50})
 ```
-<br/>
 
 ### **set(dataPath, value)**
 Add or completely replace data. To change only some values, use `update` instead.
@@ -66,7 +62,6 @@ Returns a promise for the added or updated data.
 // adds or replaces the data at "cities/sd"
 await db.set("cities/sd", { name:"San Diego", state:"CA", country:"USA", population:1307402 })
 ```
-<br/>
 
 ### **update(dataPath, value)**
 Updates fields without changing any other existing fields.
@@ -77,7 +72,6 @@ Returns a promise for the updated data.
 // replaces the "population" fields in the data at "cities/sd" without overwriting any of the other fields
 await db.update("cities/sd", { population:1423852 })
 ```
-<br/>
 
 ### **push(dataPath, value)**
 Append data to a list by generating a unique key that will be in sorted order. 
@@ -88,14 +82,12 @@ Returns a promise for the key of the added value.
 // adds or replaces the data at "cities/sd"
 const postKey = await db.push("posts", {title:"Stuff", msg:"Hello world"})
 ```
-<br/>
 
 ### **delete(dataPath)**
 Delete data at dataPath
 ``` javascript
 db.delete("cities/sd")
 ```
-<br/>
 
 ### **listen(dataPath, dataCallback)**
 Listen for data changes at the indicated data path. The data callback function is called with the full data each time there is a change to the data including the initial value. There are three parameters to the callback function: 

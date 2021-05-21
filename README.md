@@ -20,9 +20,7 @@ The `auth` module supports only email/password authentication and is only necess
 <br/>
 
 #### **Firebase SDK 9 Beta Note**
-```
 Google has recently released Firebase SDK 9 Beta, which uses a modular approach that has the potential to reduce the size of the SDK. It's difficult to measure the size of the SDK with this version, but our initial testing indicates that when loading the three modules `auth`, `firestore`, and `firebase`, the overal SDK is still above 100 KB.
-```
 
 ## **Firestore Features**
 These features are supported with the `firestore` module for the Firestore database:
@@ -53,7 +51,6 @@ Feature | Description
 <br/>
 
 ## Installation
-<br/>
 
 ### **Script Tag**
 The simplest way to add SmallFire to your web app is to add the following script tag to your `<head>` or `<body>` section:

@@ -15,7 +15,6 @@ const db = smallfile.getFirestoreDB('my-project-id', currentUser())
 
 const db = smallfile.getFirestoreDB('my-project-id', user, true)
 ```
-<br/>
 
 ## Database Functions
 
@@ -30,11 +29,9 @@ posts/post1 | document "post1" in collection "posts"
 posts/post1/comments | subcollection "comments" in document "post1"
 posts/post1/comments/comment1 | document "comment1" in subcollection "comments"
 
-<br/>
 
 Most functions support an optional `options` object with additional parameters.
 
-<br/>
 
 ### **get(documentPath [, options])**
 Get a single document. Returns a promise for the document at the indicated path.
@@ -45,7 +42,6 @@ Option | Description
 ------------ | -------------
 mask (or select) |	Restrict which fields are returned using a single field name or an array of names  
 
-<br/>
 
 ``` javascript
 let post
@@ -58,7 +54,6 @@ const city = await db.get('cities/sd', {mask:'name'})
 
 const city = await db.get('cities/sd', {select:['name', 'state']})
 ```
-<br/>
 
 ### **list(collectionPath [, options])**
 Get a list of documents within a collection. Returns a promise for an object with two values:
@@ -78,7 +73,6 @@ orderBy	| Sort results by a single field name or an array of names
 mask (or select) | 	Restrict which fields are returned using a single field name or an array of names
 showMissing	| If the list should show missing documents. A missing document is a document that does not exist but has sub-documents.
 
-<br/>
 
 ``` javascript
 const {documents} = await db.list('cities')
@@ -91,7 +85,6 @@ const {documents, nextPageToken} = await db.list('cities', {pageSize: 5})
 
 const {documents, nextPageToken} = await db.list('cities', {pageSize: 5, pageToken: nextPageToken})
 ```
-<br/>
 
 ### **set(documentPath, value)**
 Add a new document or complately replace an existing document. (To change only some values, use `update`.)
@@ -102,7 +95,6 @@ Returns a promise for the added or updated document.
 // adds or replaces the document at "cities/sd"
 await db.set("cities/sd", { name:"San Diego", state:"CA", country:"USA", population:1307402 })
 ```
-<br/>
 
 ### **update(documentPath, value)**
 Updates fields in a document without changing any other existing fields.
@@ -114,14 +106,12 @@ await db.update("cities/sd", { population:1423852 })
 //To update a value in a nested object, use dot-notation.
 await db.update("user/12345", { name.middle:"John"})
 ```
-<br/>
 
 ### **delete(documentPath)**
 Delete a document
 ``` javascript
 db.delete("cities/sd")
 ```
-<br/>
 
 ### **query(query [, options])**
 Search for documents. Returns a promise for a list of documents.
@@ -137,7 +127,6 @@ orderBy	| Sort results by a single field name or an array of names. To sort a fi
 startAt, startAfter, endAt, endBefore | Start or end before or after this value from the field specified by `orderBy`. For example, if `orderBy` is 'name' and `startAt` is 'Los Angeles', the results will includes all cities including and after Los Angeles.
 offset | The number of results to skip.
 limit | The maximum number of results to return.  
-<br/>
 
 #### **Query Filters**
 Specify query filters with an array consisting of the field name, operator, and value. Operators include `<`, `<=`, `==`, `=`, `>`, `>=`, `!=`, and `<>`. 
@@ -151,7 +140,6 @@ You can use multiple filters by adding 2 or more filters to an array. These filt
 ``` javascript
 db.query({select: ['title', 'description'], from: 'movies', where: [['year', '>', 1981], ['category', '==', 'drama']], orderBy:'title', limit: 10, offset:20})
 ```
-<br/>
 
 ### **listen(documentPath, dataCallback, errorCallback)**
 Listen for document changes at the indicated document path. The data callback function is called with the full document each time there is a change to the document. The data callback is also called with the initial value of the document.
