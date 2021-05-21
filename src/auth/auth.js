@@ -1,8 +1,5 @@
 const AUTH_STORAGE_KEY = 'Firebase-Auth-Data'
 
-const auth = { currentUser, saveUser, signIn, signOut }
-export default auth
-
 export function currentUser() {
 	const data = localStorage.getItem(AUTH_STORAGE_KEY)
 	if (data) {
@@ -58,7 +55,12 @@ async function refreshToken() {
 	saveUser(this)
 }
 
+const auth = { currentUser, saveUser, signIn, signOut }
 if (typeof window !== 'undefined') {
 	window.smallfire = window.smallfire || {}
 	window.smallfire['auth'] = auth
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = auth;
 }

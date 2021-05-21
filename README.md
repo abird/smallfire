@@ -91,7 +91,7 @@ npm install smallfire
 Then import the SmallFire functions:
 
 ``` javascript
-import { auth, getFirestoreDB, getFirebaseDB } from smallfire
+import { auth, getFirestoreDB, getFirebaseDB } from smallfire/smallfire
 ```
 or import separately:
 ``` javascript
@@ -104,9 +104,9 @@ import { getFirestoreDB } from smallfire/firestore
 ## Documentation
 Please see individual module documentation:
 
-* [Authentication](./docs/auth.md)
+* [Authentication](https://github.com/abird/smallfire/blob/master/docs/auth.md)
 
-* [Firebase realtime database](./docs/firebase.md)
+* [Firebase realtime database](https://github.com/abird/smallfire/blob/master/docs/firebase.md)
 
-* [Firestore database](./docs/firestore.md)
+* [Firestore database](https://github.com/abird/smallfire/blob/master/docs/firestore.md)
 

@@ -146,3 +146,7 @@ if (typeof window !== 'undefined') {
 	window.smallfire = window.smallfire || {}
 	window.smallfire['getFirebaseDB'] = getFirebaseDB
 }
+
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = { getFirebaseDB };
+}

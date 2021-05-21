@@ -33,3 +33,7 @@ if (typeof window !== 'undefined') {
 	window.smallfire = window.smallfire || {}
 	window.smallfire['getFirestoreDB'] = getFirestoreDB
 }
+
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = { getFirestoreDB };
+}

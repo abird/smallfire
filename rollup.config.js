@@ -5,7 +5,7 @@ export default [
 		input: 'index.js',
 		output:
 		{
-			file: 'dist/smallfire.js',
+			file: 'smallfire.js',
 			plugins: [
 				terser(),
 			]
@@ -15,7 +15,7 @@ export default [
 		input: 'src/auth/auth.js',
 		output:
 		{
-			file: 'dist/auth.js',
+			file: 'auth.js',
 			plugins: [
 				terser(),
 			]
@@ -25,7 +25,7 @@ export default [
 		input: 'src/firebase/firebase.js',
 		output:
 		{
-			file: 'dist/firebase.js',
+			file: 'firebase.js',
 			plugins: [
 				terser(),
 			]
@@ -35,7 +35,7 @@ export default [
 		input: 'src/firestore/firestore.js',
 		output:
 		{
-			file: 'dist/firestore.js',
+			file: 'firestore.js',
 			plugins: [
 				terser(),
 			]

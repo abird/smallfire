@@ -1,6 +1,8 @@
 
 import { getFirestoreDB } from './src/firestore/firestore'
 import { getFirebaseDB } from './src/firebase/firebase'
-import auth from './src/auth/auth'
+import { currentUser, saveUser, signIn, signOut } from './src/auth/auth'
 
-export { auth, getFirestoreDB, getFirebaseDB }
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = { auth: { currentUser, saveUser, signIn, signOut }, getFirestoreDB, getFirebaseDB };
+}
